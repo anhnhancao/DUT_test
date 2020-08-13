@@ -91,6 +91,7 @@ void ht_act_hdl_afe_4 (uint8_t* p_data, uint16_t data_length)
   uint8_t temp_buf[10];
 
   afe_activate_channel(param,true);
+  afe_start();
   afe_read_data((afe_sample_set_t *)ht_act_hdl_test_result);
   
   switch(param)
@@ -108,7 +109,6 @@ void ht_act_hdl_afe_4 (uint8_t* p_data, uint16_t data_length)
   memset(ht_act_hdl_test_result, 0, sizeof(ht_act_hdl_test_result));
   memcpy(ht_act_hdl_test_result,temp_buf,3);
   ht_act_hdl_send_test_status(component_id, command_id);
-
 }
 
 
